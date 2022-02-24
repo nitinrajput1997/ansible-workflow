@@ -1,0 +1,22 @@
+name: Magma
+
+on: push
+
+jobs:
+  magma-deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: ssh-copy-id
+        run: |
+          ssh-copy-id ubuntu@192.168.5.96
+          ubuntu
+          
+      - name: install ansible
+        run: |
+          sudo apt update
+          sudo apt install software-properties-common
+          sudo add-apt-repository --yes --update ppa:ansible/ansible
+          sudo apt install ansible -y
+          
+      - name: install collection
+        run: ansible-galaxy collection install -U shubhamtatvamasi.magma
