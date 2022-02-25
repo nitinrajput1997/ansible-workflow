@@ -5,12 +5,7 @@ on: push
 jobs:
   magma-deploy:
     runs-on: ubuntu-latest
-    steps: 
-      - name: ssh-copy-id
-        run: |
-          ssh-copy-id ubuntu@192.168.5.96
-          ubuntu
-          
+    steps:    
       - name: install ansible
         run: |
           sudo apt update
